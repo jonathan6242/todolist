@@ -59,6 +59,8 @@ function addTask(e) {
     } else {
         const li = document.createElement('li');
         li.className = 'collection-item';
+        li.style.transition = 'all 300ms ease';
+        li.style.opacity = 1;
         li.appendChild(document.createTextNode(taskInput.value));
         const link = document.createElement('a');
         link.className = 'delete-item';
@@ -73,6 +75,7 @@ function addTask(e) {
 
 function removeTask(e) {
     if (e.target.parentElement.classList.contains("delete-item")) {
+        e.target.parentElement.parentElement.style.transition = 'all 300ms ease';
         e.target.parentElement.parentElement.remove();
 
         removeTaskFromLocalStorage(e.target.parentElement.parentElement);
